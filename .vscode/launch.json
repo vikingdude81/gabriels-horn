@@ -1,0 +1,71 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Quick Test (3B, 3 prompts, 512 tokens)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.experiment",
+            "args": [
+                "--model", "Qwen/Qwen2.5-3B-Instruct",
+                "--num-prompts", "3",
+                "--max-tokens", "512",
+                "--output-dir", "results"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Full Experiment (7B, 10 prompts, 2048 tokens)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.experiment",
+            "args": [
+                "--model", "Qwen/Qwen2.5-7B-Instruct",
+                "--num-prompts", "10",
+                "--max-tokens", "2048",
+                "--output-dir", "results"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Single Condition Debug",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.experiment",
+            "args": [
+                "--model", "Qwen/Qwen2.5-3B-Instruct",
+                "--num-prompts", "1",
+                "--max-tokens", "256",
+                "--conditions", "horn_1/x,const_t=0.7",
+                "--output-dir", "results"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Local Model",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.experiment",
+            "args": [
+                "--model", "${input:modelPath}",
+                "--device", "cuda:0",
+                "--num-prompts", "5",
+                "--max-tokens", "1024",
+                "--output-dir", "results"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ],
+    "inputs": [
+        {
+            "id": "modelPath",
+            "type": "promptString",
+            "description": "Path to local model directory",
+            "default": "/mnt/models/qwen-7b"
+        }
+    ]
+}

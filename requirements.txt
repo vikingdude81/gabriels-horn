@@ -1,0 +1,17 @@
+# Core dependencies
+torch>=2.0
+transformers>=4.40
+scipy>=1.10
+numpy>=1.24
+
+# Visualization
+matplotlib>=3.7
+seaborn>=0.12
+tqdm>=4.65
+accelerate>=0.28
+
+# Optional: Semantic coherence metric (embedding-based)
+sentence-transformers>=2.2.0
+
+# Development / testing
+pytest>=7.0
